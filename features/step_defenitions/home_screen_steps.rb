@@ -22,16 +22,25 @@ When(/^I press on Clear button$/) do
   puts "Clear button"
 end
 
+
+
+
 When(/^I type "([^"]*)" to target text field$/) do |target_value|
-  find_element(id: "keypad").text(target_value).click
+  buttons = target_value.split("")
+  buttons.each do |button|
+  find_element(id: "keypad").find_element(xpath: "//android.widget.Button[@text='#{button}']").click
+  end
 end
+
 
 Then(/^I should see result as "([^"]*)"$/) do |result|
   actual_text = find_element(id: "target_value").text
   if result != actual_text
-    fail("Incorect conversion result")
+    fail("Expecting value to be #{result}, actual result #{actual_text}")
   end
 end
+
+
 
 
 

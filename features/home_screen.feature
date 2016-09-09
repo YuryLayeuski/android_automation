@@ -20,7 +20,7 @@ Feature: Test for Home screen functionality
 	| target | result |
 	| 1      | 30.48  |
 	| 2      | 60.96  |
-	| 10     | 300.80 |
+	| 10     | 304.8 |
 	
 	@working_progress
 	Scenario: User able to add current conversion to Favorite list

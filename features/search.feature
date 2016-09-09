@@ -1,5 +1,5 @@
 Feature: As a User I would like to perform search
-	@wip
+	
 	Scenario: User able to search by existing unit conversion
 		Given I land on home screen
 		Then I press on search icon
