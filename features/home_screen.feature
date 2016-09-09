@@ -5,16 +5,18 @@ Feature: Test for Home screen functionality
 		Then Left Unit picker value should be "Foot"
 		And Right Unit picker value should be "Centimeter"
 		Then Left Unit picker value should be "Inch"
-
-	Scenario: Show All button should be enabled at launch
+		@wip
+	Scenario: Show All button should be disabled at launch
 		Given I land on home screen
-		Then Show All button should be enabled
-		When I press on Clear button
 		Then Show All button should be disabled
+		When I type "1" in application keyboard
+		Then Show All button should be enabled
+		
+
 	@units_conversion
 	Scenario Outline: Verify default conversion
 		Given I land on home screen
-		When I type "<target>" to target text field
+		When I type "<target>" in application keyboard
 		Then I should see result as "<result>"
 	Examples:
 	| target | result |
@@ -22,7 +24,7 @@ Feature: Test for Home screen functionality
 	| 2      | 60.96  |
 	| 10     | 304.8 |
 	
-	@working_progress
+	
 	Scenario: User able to add current conversion to Favorite list
 		Given I land on home screen
 		When I press on Add to favorites icon

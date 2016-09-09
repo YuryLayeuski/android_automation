@@ -14,18 +14,24 @@ Then(/^Right Unit picker value should be "([^"]*)"$/) do |value|
   end
 end 
 
+
 Then(/^Show All button should be (enabled|disabled)$/) do |state|
-  puts state
+  actual_state = find_element(id: "btn_show_all").enabled?
+
+  if state == "enabled"
+    fail("Expecting SHOW ALL button to be enabled") if actual_state == false
+  elsif state == "disabled"
+    fail("Expecting SHOW ALL button to be disabled") if actual_state == true
+  end
 end
+
 
 When(/^I press on Clear button$/) do
   puts "Clear button"
 end
 
 
-
-
-When(/^I type "([^"]*)" to target text field$/) do |target_value|
+When(/^I type "([^"]*)" in application keyboard$/) do |target_value|
   buttons = target_value.split("")
   buttons.each do |button|
   find_element(id: "keypad").find_element(xpath: "//android.widget.Button[@text='#{button}']").click
