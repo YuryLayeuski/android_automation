@@ -5,7 +5,7 @@ Feature: Test for Home screen functionality
 		Then Left Unit picker value should be "Foot"
 		And Right Unit picker value should be "Centimeter"
 		Then Left Unit picker value should be "Inch"
-		@wip
+		
 	Scenario: Show All button should be disabled at launch
 		Given I land on home screen
 		Then Show All button should be disabled
@@ -22,14 +22,15 @@ Feature: Test for Home screen functionality
 	| target | result |
 	| 1      | 30.48  |
 	| 2      | 60.96  |
-	| 10     | 304.8 |
+	| 10     | 304.8  |
 	
-	
+	@wip
 	Scenario: User able to add current conversion to Favorite list
 		Given I land on home screen
 		When I press on Add to favorites icon
 		And I press menu icon
 		Then I press on Favorite Conversions button
+		Then I verify "Favorite conversions" as current screen name
 		And I verify "Length" added to Favorite Conversions screen
 
 

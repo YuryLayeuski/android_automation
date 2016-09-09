@@ -48,8 +48,6 @@ end
 
 
 
-
-
 When(/^I press on Add to favorites icon$/) do
   find_element(id: "action_add_favorites").click
 end
@@ -59,6 +57,12 @@ Then(/^I press on Favorite Conversions button$/) do
 end
 
 Then(/^I verify "([^"]*)" added to Favorite Conversions screen$/) do |unit_type|
-  text("Favorite conversions")
-  text( unit_type ) 
+  unit_text = find_element(id: "favorites_item_hint").text 
+  fail("Expecting unit name to be #{unit_type}, actual name is #{unit_text}") if unit_text != unit_type
 end
+
+
+
+
+
+
