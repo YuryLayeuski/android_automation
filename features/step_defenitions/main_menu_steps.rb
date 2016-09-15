@@ -18,3 +18,8 @@ end
 Then(/^I land on My Conversions screen$/) do
   text("My conversions")
 end
+
+Then(/^I select "([^"]*)" unit$/) do |unit_name|
+  find_element_in_list(unit_name)
+  text("#{unit_name}").click
+end
