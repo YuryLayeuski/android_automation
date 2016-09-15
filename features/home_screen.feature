@@ -24,7 +24,7 @@ Feature: Test for Home screen functionality
 	| 2      | 60.96  |
 	| 10     | 304.8  |
 	
-	@wip
+	
 	Scenario: User able to add current conversion to Favorite list
 		Given I land on home screen
 		When I press on Add to favorites icon
@@ -32,5 +32,37 @@ Feature: Test for Home screen functionality
 		Then I press on Favorite Conversions button
 		Then I verify "Favorite conversions" as current screen name
 		And I verify "Length" added to Favorite Conversions screen
+	
+	Scenario Outline: User able to select different values from unit picker
+		Given I land on home screen
+		Then I select "<value>" from left unit picker
+		When I type "<target>" in application keyboard
+		Then I should see result as "<result>"
+	Examples:
+		|value| target | result |
+		|Inch |  1     | 2.54   |
+		|Yard |  1     | 91.44  |
+	
+	Scenario: User able to convert different unit
+		Given I land on home screen
+		When I press menu icon
+		Then I select "Volume" unit
+		Then I select "Gallon U.K." from right unit picker
+		When I type "1" in application keyboard
+		Then I should see result as "0.8327"
+	@wip
+	Scenario: User able to convert Speed values
+		Given I land on home screen
+		When I press menu icon
+		Then I select "Speed" unit
+		When I type "1" in application keyboard
+		Then I should see result as "1.6093"
+
+
+
+
+
+
+
 
 
