@@ -10,9 +10,7 @@ When(/^I press search icon on soft keyboard$/) do
   Appium::TouchAction.new.tap(x:0.99, y:0.99, count:1).perform.release
 end
 
-Then(/^I verify "([^"]*)" as current screen name$/) do |conversion_name|
-  find_element(id: "action_bar").find_element(xpath: "//android.widget.TextView[@text='#{conversion_name}']")
-end
+
 
 
 

@@ -1,3 +1,4 @@
+@search
 Feature: As a User I would like to perform search
 	
 	Scenario: User able to search by existing unit conversion

@@ -75,6 +75,9 @@ Then(/^I select "([^"]*)" from right unit picker$/) do |value|
 end
 
 
+Then(/^I press on reverse picker values button$/) do
+  find_element(id: "img_switch").click
+end
 
 
 

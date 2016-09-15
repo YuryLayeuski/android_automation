@@ -1,3 +1,4 @@
+@custom_conversion
 Feature: User able to manage custom conversions
 	
 	Scenario: User able to create new custom conversion

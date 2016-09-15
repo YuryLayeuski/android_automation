@@ -30,7 +30,6 @@ def find_element_in_list(text)
 
   	unless exists{text"#{text}"}    # the same as:   if !exists{text"#{text}"}
   		fail("Element with name #{text} not found")
-  	}
   end
 end
 
