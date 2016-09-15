@@ -47,7 +47,6 @@ Then(/^I should see result as "([^"]*)"$/) do |result|
 end
 
 
-
 When(/^I press on Add to favorites icon$/) do
   find_element(id: "action_add_favorites").click
 end
@@ -60,6 +59,29 @@ Then(/^I verify "([^"]*)" added to Favorite Conversions screen$/) do |unit_type|
   unit_text = find_element(id: "favorites_item_hint").text 
   fail("Expecting unit name to be #{unit_type}, actual name is #{unit_text}") if unit_text != unit_type
 end
+
+
+Then(/^I select "([^"]*)" from left unit picker$/) do |value|
+    find_elements(id: "select_unit_spinner")[0].click
+    find_element_in_list(value)
+    text("#{value}").click
+end
+
+
+Then(/^I select "([^"]*)" from right unit picker$/) do |value|
+    find_elements(id: "select_unit_spinner")[1].click
+    find_element_in_list(value)
+    text("#{value}").click
+end
+
+
+
+
+
+
+
+
+
 
 
 
